@@ -1,0 +1,24 @@
+{
+  "name": "ecs-scale-to-zero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy:cf": "cdk --app \"npx ts-node src/deploy-cf.ts\" deploy --all",
+    "destroy:cf": "cdk --app \"npx ts-node src/deploy-cf.ts\" destroy --all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.147",
+    "@types/node": "^22.10.7",
+    "aws-cdk": "^2.176.0",
+    "aws-cdk-lib": "^2.176.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ecs": "^3.738.0"
+  }
+}
