@@ -103,7 +103,7 @@ const service = new FargateService(stack, 'EcsService', {
     minHealthyPercent: 100,
 });
 
-// load balancer
+// Application load balancer
 const loadBalancerSecurityGroup = new SecurityGroup(stack, 'LoadBalancerSecurityGroup', {
     vpc,
     allowAllOutbound: false,
@@ -163,7 +163,7 @@ const alarm = new Alarm(stack, 'TerminationAlarm', {
 });
 (alarm.node.defaultChild as CfnAlarm).alarmActions = [scalingPolicy.attrArn];
 
-// start lambda
+// Start lambda
 const startupLambda = new NodejsFunction(stack, 'StartupLambda', {
     entry: path.join(__dirname, 'start-lambda.ts'),
     handler: 'handler',
